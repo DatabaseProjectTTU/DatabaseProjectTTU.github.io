@@ -1,5 +1,14 @@
-CREATE INDEX movieId
-    ON Movie_metadata (movie_title);
+%Index
+CREATE INDEX awardindex
+ON Awards (ID);
+
+CREATE INDEX imdbindex
+ON IMDB_Movie (movie_title, imdb_score);
+
+%Constraints
+ALTER TABLE Awards
+ADD FOREIGN KEY (Name)
+REFERENCES IMDB_Movie (movie_table);
 
 %Metadata query
 SELECT [Best Picture Winners].Year, [Best Picture Winners].Name, [Facebook Likes of Movies].movie_facebook_likes, [Facebook Likes of Movies].cast_total_facebook_likes, [Facebook Likes of Movies].imdb_score
@@ -27,3 +36,19 @@ Values(9965,2016,89,'Best Pictutre',1,'Fox','Moonlight' ;
 Delete from Academy
 where Film ='Moonlight' ;
 
+%Interesting Findings
+
+SELECT genres, name
+FROM [Academy Award Winners and Nominees and Online Popularity]
+WHERE winner=1;
+
+SELECT Year, Name, movie_facebook_likes, cast_total_facebook_likes, imdb_score
+FROM [Best Picture Winners] INNER JOIN [Facebook Likes of Movies] 
+ON [Best Picture Winners].Name = [Facebook Likes of Movies].movie_title;
+
+%Creating View
+CREATE VIEW "Academy Award Winners and Nominees and Online Popularity" AS
+SELECT *
+FROM [Academy Awards Final], [IMDB_movie Relevant]
+WHERE Name = movie_title
+ORDER BY Ceremony;
