@@ -1,0 +1,29 @@
+CREATE INDEX movieId
+    ON Movie_metadata (movie_title);
+
+%Metadata query
+SELECT [Best Picture Winners].Year, [Best Picture Winners].Name, [Facebook Likes of Movies].movie_facebook_likes, [Facebook Likes of Movies].cast_total_facebook_likes, [Facebook Likes of Movies].imdb_score
+FROM [Best Picture Winners] INNER JOIN [Facebook Likes of Movies] ON [Best Picture Winners].Name = [Facebook Likes of Movies].movie_title;
+
+%Academy query
+SELECT Year, Ceremony, Award, Name
+FROM Academy
+WHERE Academy.Award IN ('Best Picture','Outstanding Picture','Outstanding Motion Picture','Outstanding Production','Best Motion Picture') and Winner='1';
+
+%Join Query
+SELECT Movie_metadata.movie_facebook_likes, Movie_metadata.genres, Movie_metadata.movie_title, Movie_metadata.cast_total_facebook_likes, Movie_metadata.title_year, Movie_metadata.imdb_score
+FROM Movie_metadata;
+
+%Update
+Update Academy
+Set Name = 'Plan B Entertainment'
+ Where Film = 'Moonlight' ;
+
+%Insert
+Insert into Academy
+Values(9965,2016,89,'Best Pictutre',1,'Fox','Moonlight' ;
+
+%Delete
+Delete from Academy
+where Film ='Moonlight' ;
+
