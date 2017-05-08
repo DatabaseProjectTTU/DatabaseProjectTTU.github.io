@@ -1,12 +1,16 @@
 //css
-body{
-    width:720px;
-    margin:20px auto;
-} 
+html, body {
+    height: 100%;
+}
 
-#divMain{
-    width:500px;
-    margin:0 auto;
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 nav ul, footer ul {
