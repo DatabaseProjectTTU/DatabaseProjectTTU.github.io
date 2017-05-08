@@ -1,12 +1,12 @@
 //css
-body {
-    margin: 60px auto;
-    width: auto;
-}
+body{
+    width:720px;
+    margin:20px auto;
+} 
 
-.divMain{
-  width: auto;
-  margin: 0 auto;
+#divMain{
+    width:500px;
+    margin:0 auto;
 }
 
 nav ul, footer ul {
