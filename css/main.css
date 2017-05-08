@@ -3,13 +3,7 @@ body {
   text-align: center;
  }
 
-#wrap {
-  text-align: left;
-  width: 800px;
-  margin: 0 auto;
-}
-
-#foot {
+#wrap, #foot {
   text-align: left;
   width: 800px;
   margin: 0 auto;
